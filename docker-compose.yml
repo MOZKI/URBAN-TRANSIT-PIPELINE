@@ -12,7 +12,7 @@ services:
       - --overprovisioned
       - --node-id=0
       - --kafka-addr=PLAINTEXT://0.0.0.0:9092
-      - --advertise-kafka-addr=PLAINTEXT://redpanda:9092
+      - --advertise-kafka-addr=PLAINTEXT://localhost:9092
       - --pandaproxy-addr=0.0.0.0:8082
       - --advertise-pandaproxy-addr=localhost:8082
     ports:
