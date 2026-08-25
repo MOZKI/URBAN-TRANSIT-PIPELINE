@@ -9,17 +9,20 @@ import time
 from datetime import datetime, timezone
 
 import requests
+from dotenv import load_dotenv
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
+
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))  # load .env 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("lta-producer")
 
-# config 
+# config
 LTA_ACCOUNT_KEY = os.environ["LTA_ACCOUNT_KEY"]
 LTA_BASE_URL = os.environ.get("LTA_BASE_URL", "https://datamall2.mytransport.sg/ltaodataservice")
 
-POLL_MODE = os.environ.get("POLL_MODE", "manual") 
+POLL_MODE = os.environ.get("POLL_MODE", "manual")
 BUS_SERVICE_NOS = os.environ.get("BUS_SERVICE_NOS", "").split(",")
 BUS_STOP_CODES_MANUAL = os.environ.get("BUS_STOP_CODES", "83139").split(",")
 
@@ -66,28 +69,25 @@ def request_with_backoff(url: str, params: dict) -> dict | None:
 
 
 def resolve_corridor_stops(service_nos: list[str]) -> list[str]:
+    target_services = {s.strip() for s in service_nos}
     stop_codes: set[str] = set()
 
-    for service_no in service_nos:
-        service_no = service_no.strip()
-        skip = 0
-        while True:
-            data = request_with_backoff(
-                f"{LTA_BASE_URL}/BusRoutes",
-                {"ServiceNo": service_no, "$skip": skip},
-            )
-            if not data or not data.get("value"):
-                break
+    skip = 0
+    while True:
+        data = request_with_backoff(f"{LTA_BASE_URL}/BusRoutes", {"$skip": skip})
+        if not data or not data.get("value"):
+            break
 
-            records = data["value"]
-            for record in records:
+        records = data["value"]
+        for record in records:
+            if record["ServiceNo"] in target_services:
                 stop_codes.add(record["BusStopCode"])
 
-            if len(records) < 500:
-                break  
-            skip += 500
+        logger.info(f"Fetched page at skip={skip} ({len(records)} records). Matched so far: {len(stop_codes)}")
 
-        logger.info(f"Resolved stops for ServiceNo={service_no} (running total: {len(stop_codes)} unique stops)")
+        if len(records) < 500:
+            break  
+        skip += 500
 
     return sorted(stop_codes)
 
