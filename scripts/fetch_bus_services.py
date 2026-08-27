@@ -31,8 +31,6 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "bus_services_reference.json")
 
 
 def fetch_service(service_no: str) -> list[dict]:
-    """Fetch record(s) for a single ServiceNo. BusServices supports server-side
-    ServiceNo filtering, so no pagination loop needed per service."""
     url = f"{LTA_BASE_URL}/BusServices"
     for attempt in range(MAX_RETRIES + 1):
         try:

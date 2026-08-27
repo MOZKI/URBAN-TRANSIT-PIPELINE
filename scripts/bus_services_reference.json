@@ -1,0 +1,68 @@
+[
+  {
+    "service_no": "190",
+    "operator": "SMRT",
+    "direction": 1,
+    "category": "TRUNK",
+    "am_peak_freq": "02-05",
+    "am_offpeak_freq": "04-07",
+    "pm_peak_freq": "06-07",
+    "pm_offpeak_freq": "07-11",
+    "loop_desc": ""
+  },
+  {
+    "service_no": "190",
+    "operator": "SMRT",
+    "direction": 2,
+    "category": "TRUNK",
+    "am_peak_freq": "08-11",
+    "am_offpeak_freq": "04-07",
+    "pm_peak_freq": "04-06",
+    "pm_offpeak_freq": "05-08",
+    "loop_desc": ""
+  },
+  {
+    "service_no": "147",
+    "operator": "SBST",
+    "direction": 1,
+    "category": "TRUNK",
+    "am_peak_freq": "08-10",
+    "am_offpeak_freq": "10-13",
+    "pm_peak_freq": "10-12",
+    "pm_offpeak_freq": "09-12",
+    "loop_desc": ""
+  },
+  {
+    "service_no": "147",
+    "operator": "SBST",
+    "direction": 2,
+    "category": "TRUNK",
+    "am_peak_freq": "09-10",
+    "am_offpeak_freq": "09-13",
+    "pm_peak_freq": "10-12",
+    "pm_offpeak_freq": "09-12",
+    "loop_desc": ""
+  },
+  {
+    "service_no": "2",
+    "operator": "GAS",
+    "direction": 1,
+    "category": "TRUNK",
+    "am_peak_freq": "11-11",
+    "am_offpeak_freq": "11-15",
+    "pm_peak_freq": "12-14",
+    "pm_offpeak_freq": "15-16",
+    "loop_desc": ""
+  },
+  {
+    "service_no": "2",
+    "operator": "GAS",
+    "direction": 2,
+    "category": "TRUNK",
+    "am_peak_freq": "11-13",
+    "am_offpeak_freq": "12-15",
+    "pm_peak_freq": "11-12",
+    "pm_offpeak_freq": "13-16",
+    "loop_desc": ""
+  }
+]

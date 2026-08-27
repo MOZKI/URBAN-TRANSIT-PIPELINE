@@ -1,0 +1,2060 @@
+[
+  {
+    "bus_stop_code": "64009",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "64041",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "64051",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "64071",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "64039",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "64369",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "64359",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "64349",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "63379",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "63389",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "63399",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "63319",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 12
+  },
+  {
+    "bus_stop_code": "63219",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 13
+  },
+  {
+    "bus_stop_code": "63209",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 14
+  },
+  {
+    "bus_stop_code": "63199",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 15
+  },
+  {
+    "bus_stop_code": "63189",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "63179",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "63369",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "66379",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "62139",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "62129",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "62119",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "61049",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "61039",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 24
+  },
+  {
+    "bus_stop_code": "61029",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 25
+  },
+  {
+    "bus_stop_code": "61019",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "60269",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "60209",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "60179",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "60159",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "60139",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "60119",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "60099",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "07329",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "07319",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "07419",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 36
+  },
+  {
+    "bus_stop_code": "07529",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 37
+  },
+  {
+    "bus_stop_code": "07518",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 38
+  },
+  {
+    "bus_stop_code": "04019",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 39
+  },
+  {
+    "bus_stop_code": "04159",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 40
+  },
+  {
+    "bus_stop_code": "04149",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 41
+  },
+  {
+    "bus_stop_code": "04229",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 42
+  },
+  {
+    "bus_stop_code": "04239",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 43
+  },
+  {
+    "bus_stop_code": "05059",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 44
+  },
+  {
+    "bus_stop_code": "05049",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 45
+  },
+  {
+    "bus_stop_code": "05039",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 46
+  },
+  {
+    "bus_stop_code": "05019",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 47
+  },
+  {
+    "bus_stop_code": "05069",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 48
+  },
+  {
+    "bus_stop_code": "10011",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 49
+  },
+  {
+    "bus_stop_code": "10041",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 50
+  },
+  {
+    "bus_stop_code": "10051",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 51
+  },
+  {
+    "bus_stop_code": "10061",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 52
+  },
+  {
+    "bus_stop_code": "10071",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 53
+  },
+  {
+    "bus_stop_code": "10501",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 54
+  },
+  {
+    "bus_stop_code": "10081",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 55
+  },
+  {
+    "bus_stop_code": "10091",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 56
+  },
+  {
+    "bus_stop_code": "10101",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 57
+  },
+  {
+    "bus_stop_code": "10111",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 58
+  },
+  {
+    "bus_stop_code": "10131",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 59
+  },
+  {
+    "bus_stop_code": "11021",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 60
+  },
+  {
+    "bus_stop_code": "11031",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 61
+  },
+  {
+    "bus_stop_code": "11041",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 62
+  },
+  {
+    "bus_stop_code": "11051",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 63
+  },
+  {
+    "bus_stop_code": "11161",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 64
+  },
+  {
+    "bus_stop_code": "11171",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 65
+  },
+  {
+    "bus_stop_code": "11181",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 66
+  },
+  {
+    "bus_stop_code": "11191",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 67
+  },
+  {
+    "bus_stop_code": "19011",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 68
+  },
+  {
+    "bus_stop_code": "19021",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 69
+  },
+  {
+    "bus_stop_code": "19031",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 70
+  },
+  {
+    "bus_stop_code": "19041",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 71
+  },
+  {
+    "bus_stop_code": "17151",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 72
+  },
+  {
+    "bus_stop_code": "17161",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 73
+  },
+  {
+    "bus_stop_code": "17171",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 74
+  },
+  {
+    "bus_stop_code": "17009",
+    "service_no": "147",
+    "direction": 1,
+    "stop_sequence": 75
+  },
+  {
+    "bus_stop_code": "17009",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "17239",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "17159",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "19049",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "19039",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "19029",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "19019",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "11199",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "11189",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "11179",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "11169",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "11059",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 12
+  },
+  {
+    "bus_stop_code": "11049",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 13
+  },
+  {
+    "bus_stop_code": "11039",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 14
+  },
+  {
+    "bus_stop_code": "11029",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 15
+  },
+  {
+    "bus_stop_code": "11019",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "10139",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "10119",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "10109",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "10099",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "10089",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "10079",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "10069",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "10059",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 24
+  },
+  {
+    "bus_stop_code": "10049",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 25
+  },
+  {
+    "bus_stop_code": "10017",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "10018",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "05012",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "05022",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "04222",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "04223",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "04143",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "04121",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "08079",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "07011",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "07021",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 36
+  },
+  {
+    "bus_stop_code": "07031",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 37
+  },
+  {
+    "bus_stop_code": "07111",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 38
+  },
+  {
+    "bus_stop_code": "07211",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 39
+  },
+  {
+    "bus_stop_code": "07221",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 40
+  },
+  {
+    "bus_stop_code": "60101",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 41
+  },
+  {
+    "bus_stop_code": "60121",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 42
+  },
+  {
+    "bus_stop_code": "60141",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 43
+  },
+  {
+    "bus_stop_code": "60161",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 44
+  },
+  {
+    "bus_stop_code": "60201",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 45
+  },
+  {
+    "bus_stop_code": "60261",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 46
+  },
+  {
+    "bus_stop_code": "61011",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 47
+  },
+  {
+    "bus_stop_code": "61021",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 48
+  },
+  {
+    "bus_stop_code": "61031",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 49
+  },
+  {
+    "bus_stop_code": "61041",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 50
+  },
+  {
+    "bus_stop_code": "62111",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 51
+  },
+  {
+    "bus_stop_code": "62121",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 52
+  },
+  {
+    "bus_stop_code": "62131",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 53
+  },
+  {
+    "bus_stop_code": "66371",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 54
+  },
+  {
+    "bus_stop_code": "63361",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 55
+  },
+  {
+    "bus_stop_code": "63181",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 56
+  },
+  {
+    "bus_stop_code": "63191",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 57
+  },
+  {
+    "bus_stop_code": "63201",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 58
+  },
+  {
+    "bus_stop_code": "63211",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 59
+  },
+  {
+    "bus_stop_code": "63311",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 60
+  },
+  {
+    "bus_stop_code": "63391",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 61
+  },
+  {
+    "bus_stop_code": "63381",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 62
+  },
+  {
+    "bus_stop_code": "63371",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 63
+  },
+  {
+    "bus_stop_code": "64341",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 64
+  },
+  {
+    "bus_stop_code": "64351",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 65
+  },
+  {
+    "bus_stop_code": "64361",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 66
+  },
+  {
+    "bus_stop_code": "64031",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 67
+  },
+  {
+    "bus_stop_code": "64079",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 68
+  },
+  {
+    "bus_stop_code": "64059",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 69
+  },
+  {
+    "bus_stop_code": "64049",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 70
+  },
+  {
+    "bus_stop_code": "64009",
+    "service_no": "147",
+    "direction": 2,
+    "stop_sequence": 71
+  },
+  {
+    "bus_stop_code": "44009",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "44539",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "44399",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "44299",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "44289",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "44279",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "44141",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "44251",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "44241",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "44231",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "44261",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "40239",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 14
+  },
+  {
+    "bus_stop_code": "40229",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 15
+  },
+  {
+    "bus_stop_code": "40219",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "40209",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "40199",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "09219",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "09047",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "09037",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "08138",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "08057",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "08069",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 24
+  },
+  {
+    "bus_stop_code": "04159",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 25
+  },
+  {
+    "bus_stop_code": "04149",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "04229",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "04239",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "05059",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "05049",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "05039",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "05019",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "05069",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "10011",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "10041",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "10499",
+    "service_no": "190",
+    "direction": 1,
+    "stop_sequence": 36
+  },
+  {
+    "bus_stop_code": "10499",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "10049",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "10017",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "05012",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "05022",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "04222",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "04223",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "04143",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "04121",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "08041",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "08031",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "08111",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 12
+  },
+  {
+    "bus_stop_code": "08121",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 13
+  },
+  {
+    "bus_stop_code": "09011",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "09023",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "09213",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "40191",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "40201",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "40211",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "40221",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "40231",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "44269",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "44239",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "44249",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "44259",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "44149",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "44271",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "44281",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "44291",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "44391",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "44009",
+    "service_no": "190",
+    "direction": 2,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "99009",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "99131",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "99049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "99039",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "99029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "99019",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "98079",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "98069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "97099",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "97089",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "97079",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "97069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 12
+  },
+  {
+    "bus_stop_code": "97209",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 13
+  },
+  {
+    "bus_stop_code": "97059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 14
+  },
+  {
+    "bus_stop_code": "97049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 15
+  },
+  {
+    "bus_stop_code": "97039",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "97019",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "96069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "96059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "96049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "95909",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "96099",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "96089",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "96079",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 24
+  },
+  {
+    "bus_stop_code": "85079",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 25
+  },
+  {
+    "bus_stop_code": "85089",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "85069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "85059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "85099",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "84069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "84059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "84049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "84039",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "84029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "84019",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "83099",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 36
+  },
+  {
+    "bus_stop_code": "83079",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 37
+  },
+  {
+    "bus_stop_code": "83059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 38
+  },
+  {
+    "bus_stop_code": "83049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 39
+  },
+  {
+    "bus_stop_code": "83029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 40
+  },
+  {
+    "bus_stop_code": "82069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 41
+  },
+  {
+    "bus_stop_code": "82049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 42
+  },
+  {
+    "bus_stop_code": "82029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 43
+  },
+  {
+    "bus_stop_code": "82109",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 44
+  },
+  {
+    "bus_stop_code": "81069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 45
+  },
+  {
+    "bus_stop_code": "81049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 46
+  },
+  {
+    "bus_stop_code": "81029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 47
+  },
+  {
+    "bus_stop_code": "80089",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 48
+  },
+  {
+    "bus_stop_code": "80069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 49
+  },
+  {
+    "bus_stop_code": "80049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 50
+  },
+  {
+    "bus_stop_code": "80039",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 51
+  },
+  {
+    "bus_stop_code": "80029",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 52
+  },
+  {
+    "bus_stop_code": "01319",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 53
+  },
+  {
+    "bus_stop_code": "01219",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 54
+  },
+  {
+    "bus_stop_code": "01129",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 55
+  },
+  {
+    "bus_stop_code": "01059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 56
+  },
+  {
+    "bus_stop_code": "01119",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 57
+  },
+  {
+    "bus_stop_code": "01019",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 58
+  },
+  {
+    "bus_stop_code": "04159",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 59
+  },
+  {
+    "bus_stop_code": "04149",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 60
+  },
+  {
+    "bus_stop_code": "04229",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 61
+  },
+  {
+    "bus_stop_code": "04239",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 62
+  },
+  {
+    "bus_stop_code": "05059",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 63
+  },
+  {
+    "bus_stop_code": "05049",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 64
+  },
+  {
+    "bus_stop_code": "05039",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 65
+  },
+  {
+    "bus_stop_code": "05019",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 66
+  },
+  {
+    "bus_stop_code": "05069",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 67
+  },
+  {
+    "bus_stop_code": "10011",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 68
+  },
+  {
+    "bus_stop_code": "10041",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 69
+  },
+  {
+    "bus_stop_code": "10499",
+    "service_no": "2",
+    "direction": 1,
+    "stop_sequence": 70
+  },
+  {
+    "bus_stop_code": "10499",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 1
+  },
+  {
+    "bus_stop_code": "10049",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 2
+  },
+  {
+    "bus_stop_code": "10017",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 3
+  },
+  {
+    "bus_stop_code": "05013",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 4
+  },
+  {
+    "bus_stop_code": "05023",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 5
+  },
+  {
+    "bus_stop_code": "04222",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 6
+  },
+  {
+    "bus_stop_code": "04142",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 7
+  },
+  {
+    "bus_stop_code": "01012",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 8
+  },
+  {
+    "bus_stop_code": "01113",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 9
+  },
+  {
+    "bus_stop_code": "01121",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 10
+  },
+  {
+    "bus_stop_code": "01211",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 11
+  },
+  {
+    "bus_stop_code": "01311",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 12
+  },
+  {
+    "bus_stop_code": "80011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 13
+  },
+  {
+    "bus_stop_code": "80031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 14
+  },
+  {
+    "bus_stop_code": "80051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 15
+  },
+  {
+    "bus_stop_code": "80071",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 16
+  },
+  {
+    "bus_stop_code": "80091",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 17
+  },
+  {
+    "bus_stop_code": "81011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 18
+  },
+  {
+    "bus_stop_code": "81031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 19
+  },
+  {
+    "bus_stop_code": "81051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 20
+  },
+  {
+    "bus_stop_code": "82011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 21
+  },
+  {
+    "bus_stop_code": "82032",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 22
+  },
+  {
+    "bus_stop_code": "82061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 23
+  },
+  {
+    "bus_stop_code": "83011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 24
+  },
+  {
+    "bus_stop_code": "83031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 25
+  },
+  {
+    "bus_stop_code": "83062",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 26
+  },
+  {
+    "bus_stop_code": "83081",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 27
+  },
+  {
+    "bus_stop_code": "84011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 28
+  },
+  {
+    "bus_stop_code": "84021",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 29
+  },
+  {
+    "bus_stop_code": "84031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 30
+  },
+  {
+    "bus_stop_code": "84041",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 31
+  },
+  {
+    "bus_stop_code": "84051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 32
+  },
+  {
+    "bus_stop_code": "84061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 33
+  },
+  {
+    "bus_stop_code": "85091",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 34
+  },
+  {
+    "bus_stop_code": "85051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 35
+  },
+  {
+    "bus_stop_code": "85061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 36
+  },
+  {
+    "bus_stop_code": "85081",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 37
+  },
+  {
+    "bus_stop_code": "85071",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 38
+  },
+  {
+    "bus_stop_code": "96071",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 39
+  },
+  {
+    "bus_stop_code": "96081",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 40
+  },
+  {
+    "bus_stop_code": "96091",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 41
+  },
+  {
+    "bus_stop_code": "95901",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 42
+  },
+  {
+    "bus_stop_code": "96041",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 43
+  },
+  {
+    "bus_stop_code": "96051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 44
+  },
+  {
+    "bus_stop_code": "96061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 45
+  },
+  {
+    "bus_stop_code": "97011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 46
+  },
+  {
+    "bus_stop_code": "97031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 47
+  },
+  {
+    "bus_stop_code": "97041",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 48
+  },
+  {
+    "bus_stop_code": "97051",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 49
+  },
+  {
+    "bus_stop_code": "97201",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 50
+  },
+  {
+    "bus_stop_code": "97061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 51
+  },
+  {
+    "bus_stop_code": "97071",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 52
+  },
+  {
+    "bus_stop_code": "97081",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 53
+  },
+  {
+    "bus_stop_code": "97091",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 54
+  },
+  {
+    "bus_stop_code": "98061",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 55
+  },
+  {
+    "bus_stop_code": "98071",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 56
+  },
+  {
+    "bus_stop_code": "99011",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 57
+  },
+  {
+    "bus_stop_code": "99021",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 58
+  },
+  {
+    "bus_stop_code": "99031",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 59
+  },
+  {
+    "bus_stop_code": "99041",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 60
+  },
+  {
+    "bus_stop_code": "99139",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 61
+  },
+  {
+    "bus_stop_code": "99009",
+    "service_no": "2",
+    "direction": 2,
+    "stop_sequence": 62
+  }
+]
