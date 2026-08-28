@@ -1,5 +1,5 @@
 """
-LTA Bus Arrival Producer — Polling Mode = `corridor`
+LTA Bus Arrival Producer — Polling Mode = `corridor` (External)
 """
 
 import json

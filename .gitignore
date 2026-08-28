@@ -17,3 +17,9 @@ dbt/logs/
 # Airflow
 airflow/logs/
 airflow/plugins/__pycache__/
+
+# local cache
+.ivy2/
+metastore_db/
+derby.log
+spark-warehouse/

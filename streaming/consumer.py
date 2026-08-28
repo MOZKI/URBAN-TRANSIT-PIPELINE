@@ -1,5 +1,5 @@
 """
-PySpark Structured Streaming Consumer
+PySpark Structured Streaming Consumer (Containerized/Internal)
 Redpanda (lta.bus-arrival.raw) -> parse & enrich -> MinIO Bronze
 """
 import logging
@@ -61,13 +61,21 @@ def build_spark_session() -> SparkSession:
         .config("spark.hadoop.fs.s3a.path.style.access", "true")
         .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
         .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false")
-        .config("spark.sql.shuffle.partitions", "4")  
+        .config(
+            "spark.hadoop.fs.s3a.aws.credentials.provider",
+            "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
+        )
+        .config("spark.hadoop.fs.s3a.endpoint.region", "us-east-1")
+        .config("spark.hadoop.fs.s3a.connection.timeout", "10000")
+        .config("spark.hadoop.fs.s3a.connection.establish.timeout", "5000")
+        .config("spark.hadoop.fs.s3a.attempts.maximum", "3")
+        .config("spark.sql.shuffle.partitions", "4") 
         .getOrCreate()
     )
 
 
 def load_direction_lookup(spark: SparkSession):
-    routes = spark.read.json(config.REFERENCE_ROUTES_PATH)
+    routes = spark.read.option("multiline", "true").json(config.REFERENCE_ROUTES_PATH)
 
     origin_lookup = (
         routes.filter(F.col("stop_sequence") == 1)
@@ -85,7 +93,7 @@ def load_direction_lookup(spark: SparkSession):
 
 
 def load_services_lookup(spark: SparkSession):
-    services = spark.read.json(config.REFERENCE_SERVICES_PATH)
+    services = spark.read.option("multiline", "true").json(config.REFERENCE_SERVICES_PATH)
 
     for freq_col in ["am_peak_freq", "am_offpeak_freq", "pm_peak_freq", "pm_offpeak_freq"]:
         parts = F.split(F.col(freq_col), "-")
@@ -114,12 +122,22 @@ def determine_period_bucket(hhmm_col):
 
 
 def run():
+    logger.info("Step 1/6: Building Spark session...")
     spark = build_spark_session()
     spark.sparkContext.setLogLevel("WARN")
+    logger.info("Step 1/6: DONE — Spark session ready.")
 
+    logger.info("Step 2/6: Loading direction lookup from MinIO (bus_routes_reference.json)...")
     direction_lookup = load_direction_lookup(spark)
-    services_lookup = load_services_lookup(spark)
+    direction_lookup.cache()
+    logger.info(f"Step 2/6: DONE — {direction_lookup.count()} direction lookup rows loaded.")
 
+    logger.info("Step 3/6: Loading services lookup from MinIO (bus_services_reference.json)...")
+    services_lookup = load_services_lookup(spark)
+    services_lookup.cache()
+    logger.info(f"Step 3/6: DONE — {services_lookup.count()} services lookup rows loaded.")
+
+    logger.info("Step 4/6: Connecting to Kafka/Redpanda stream...")
     raw_stream = (
         spark.readStream.format("kafka")
         .option("kafka.bootstrap.servers", config.KAFKA_BOOTSTRAP_SERVERS)
@@ -127,7 +145,9 @@ def run():
         .option("startingOffsets", "latest")
         .load()
     )
+    logger.info("Step 4/6: DONE — Kafka stream configured (belum tentu ada data masuk).")
 
+    logger.info("Step 5/6: Building transformation pipeline...")
     parsed = (
         raw_stream.selectExpr("CAST(value AS STRING) AS json_str")
         .select(F.from_json(F.col("json_str"), EVENT_SCHEMA).alias("data"))
@@ -167,7 +187,7 @@ def run():
         how="left",
     )
 
-    hhmm = F.substring(F.col("next_bus_eta"), 12, 5)  
+    hhmm = F.substring(F.col("next_bus_eta"), 12, 5) 
     with_period = with_freq.withColumn("period_bucket", determine_period_bucket(hhmm))
 
     expected_high = (
@@ -205,7 +225,7 @@ def run():
         .withColumn("hour", F.date_format("event_ts", "HH"))
     )
 
-    logger.info(f"Starting stream: {config.KAFKA_TOPIC} -> {config.BRONZE_OUTPUT_PATH}")
+    logger.info(f"Step 6/6: Starting stream: {config.KAFKA_TOPIC} -> {config.BRONZE_OUTPUT_PATH}")
 
     query = (
         final_df.writeStream.format("parquet")
@@ -217,6 +237,7 @@ def run():
         .start()
     )
 
+    logger.info("Step 6/6: DONE — Query started, waiting for micro-batches...")
     query.awaitTermination()
 
 

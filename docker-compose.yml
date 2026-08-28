@@ -43,6 +43,21 @@ services:
     volumes:
       - minio-data:/data
 
+  spark-consumer:
+    build:
+      context: ./streaming
+    container_name: spark-consumer
+    depends_on:
+      - redpanda
+      - minio-urban-transit
+    environment:
+      REDPANDA_BROKER: redpanda:9092
+      TOPIC_NAME: lta.bus-arrival.raw
+      MINIO_ENDPOINT: http://minio-urban-transit:9000
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_BUCKET: urban-transit
+
 volumes:
   redpanda-data:
   minio-data:
