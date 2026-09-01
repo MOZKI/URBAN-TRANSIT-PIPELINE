@@ -13,12 +13,12 @@ from pyspark.sql.types import (
     StructField,
     StructType,
 )
+from pyspark.sql.window import Window
 
 import config
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("bus-arrival-consumer")
-
 
 NEXT_BUS_SCHEMA = StructType([
     StructField("OriginCode", StringType()),
@@ -50,7 +50,6 @@ EVENT_SCHEMA = StructType([
     ])),
 ])
 
-
 def build_spark_session() -> SparkSession:
     return (
         SparkSession.builder.appName("lta-bus-arrival-consumer")
@@ -69,28 +68,22 @@ def build_spark_session() -> SparkSession:
         .config("spark.hadoop.fs.s3a.connection.timeout", "10000")
         .config("spark.hadoop.fs.s3a.connection.establish.timeout", "5000")
         .config("spark.hadoop.fs.s3a.attempts.maximum", "3")
+        .config("spark.hadoop.fs.s3a.connection.keepalive", "false")
+        .config("spark.hadoop.fs.s3a.connection.ttl", "5000")
         .config("spark.sql.shuffle.partitions", "4") 
         .getOrCreate()
     )
 
-
 def load_direction_lookup(spark: SparkSession):
     routes = spark.read.option("multiline", "true").json(config.REFERENCE_ROUTES_PATH)
 
-    origin_lookup = (
-        routes.filter(F.col("stop_sequence") == 1)
-        .select("service_no", "direction", F.col("bus_stop_code").alias("origin_code"))
+    window = Window.partitionBy("service_no", "bus_stop_code").orderBy("stop_sequence")
+    return (
+        routes
+        .withColumn("rn", F.row_number().over(window))
+        .filter(F.col("rn") == 1)
+        .select("service_no", "bus_stop_code", "direction")
     )
-
-    max_seq = routes.groupBy("service_no", "direction").agg(F.max("stop_sequence").alias("max_seq"))
-    destination_lookup = (
-        routes.join(max_seq, ["service_no", "direction"])
-        .filter(F.col("stop_sequence") == F.col("max_seq"))
-        .select("service_no", "direction", F.col("bus_stop_code").alias("destination_code"))
-    )
-
-    return origin_lookup.join(destination_lookup, ["service_no", "direction"])
-
 
 def load_services_lookup(spark: SparkSession):
     services = spark.read.option("multiline", "true").json(config.REFERENCE_SERVICES_PATH)
@@ -111,7 +104,6 @@ def load_services_lookup(spark: SparkSession):
         "pm_offpeak_freq_low", "pm_offpeak_freq_high",
     )
 
-
 def determine_period_bucket(hhmm_col):
     return (
         F.when((hhmm_col >= config.AM_PEAK_START) & (hhmm_col < config.AM_PEAK_END), F.lit("am_peak"))
@@ -119,7 +111,6 @@ def determine_period_bucket(hhmm_col):
         .when((hhmm_col >= config.PM_PEAK_START) & (hhmm_col < config.PM_PEAK_END), F.lit("pm_peak"))
         .otherwise(F.lit("pm_offpeak"))
     )
-
 
 def run():
     logger.info("Step 1/6: Building Spark session...")
@@ -177,7 +168,7 @@ def run():
 
     with_direction = enriched.join(
         F.broadcast(direction_lookup),
-        on=["service_no", "origin_code", "destination_code"],
+        on=["service_no", "bus_stop_code"],
         how="left",
     )
 
@@ -187,7 +178,7 @@ def run():
         how="left",
     )
 
-    hhmm = F.substring(F.col("next_bus_eta"), 12, 5) 
+    hhmm = F.substring(F.col("next_bus_eta"), 12, 5)
     with_period = with_freq.withColumn("period_bucket", determine_period_bucket(hhmm))
 
     expected_high = (
