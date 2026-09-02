@@ -40,18 +40,15 @@ def build_local_connection() -> duckdb.DuckDBPyConnection:
             URL_STYLE 'path'
         );
     """)
-    con.execute(f"ATTACH 'md:{MOTHERDUCK_DATABASE}?motherduck_token={MOTHERDUCK_TOKEN}' AS md;")
     return con
 
 
 def load(since: str | None) -> None:
     con = build_local_connection()
-
     where_clause = ""
     if since:
         where_clause = f"WHERE (year || '-' || month || '-' || day) >= '{since}'"
         logger.info(f"Filtering partisi bronze dengan --since {since}")
-
     logger.info(f"Reading bronze parquet from {BRONZE_GLOB} ...")
     raw_count = con.execute(f"SELECT count(*) FROM read_parquet('{BRONZE_GLOB}') {where_clause}").fetchone()[0]
     logger.info(f"Read {raw_count} raw rows.")
@@ -60,10 +57,9 @@ def load(since: str | None) -> None:
         logger.warning("Bronze kosong — pastikan spark-consumer sudah jalan & ada event ter-ingest.")
         con.close()
         return
-
     dedup_key_cols = ", ".join(DEDUP_KEYS)
-    insert_sql = f"""
-        INSERT INTO md.staging.stg_bus_arrival_raw
+    con.execute(f"""
+        CREATE TEMP TABLE bronze_dedup AS
         SELECT * EXCLUDE (rn) FROM (
             SELECT *,
                    row_number() OVER (PARTITION BY {dedup_key_cols} ORDER BY event_ts DESC) AS rn
@@ -71,8 +67,15 @@ def load(since: str | None) -> None:
             {where_clause}
         )
         WHERE rn = 1
-    """
-    con.execute(insert_sql)
+    """)
+    local_count = con.execute("SELECT count(*) FROM bronze_dedup").fetchone()[0]
+    logger.info(f"Deduped locally: {local_count} rows ready to push to MotherDuck.")
+  
+    con.execute("INSTALL motherduck; LOAD motherduck;")
+    con.execute(f"SET motherduck_token='{MOTHERDUCK_TOKEN}';")
+    con.execute(f"ATTACH 'md:{MOTHERDUCK_DATABASE}' AS md;")
+
+    con.execute("INSERT INTO md.staging.stg_bus_arrival_raw BY NAME SELECT * FROM bronze_dedup")
 
     inserted = con.execute("SELECT count(*) FROM md.staging.stg_bus_arrival_raw").fetchone()[0]
     logger.info(f"Done. staging.stg_bus_arrival_raw now has {inserted} total rows.")
