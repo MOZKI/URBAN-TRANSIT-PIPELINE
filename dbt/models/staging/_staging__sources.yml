@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: stg_bus_arrival_raw
+      - name: stg_bus_routes_raw
+      - name: stg_bus_services_raw
