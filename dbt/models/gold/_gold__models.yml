@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_bus_delays
+    columns:
+      - name: arrival_id
+        tests: [unique, not_null]
+      - name: service_no
+        tests:
+          - relationships:
+              to: ref('dim_bus_services')
+              field: service_no
+
+  - name: dim_bus_services
+    columns:
+      - name: service_no
+        tests: [not_null]
