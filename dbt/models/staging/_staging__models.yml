@@ -13,6 +13,9 @@ models:
           - accepted_values: { values: [1, 2] }
 
   - name: stg_bus_routes
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: [service_no, direction, bus_stop_code]
     columns:
       - name: service_no
         tests: [not_null]
