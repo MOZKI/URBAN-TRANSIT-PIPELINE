@@ -71,6 +71,16 @@ CREATE TABLE IF NOT EXISTS staging.stg_bus_routes_raw (
 );
 """
 
+CREATE_STG_BUS_STOPS = """
+CREATE TABLE IF NOT EXISTS staging.stg_bus_stops_raw (
+    bus_stop_code    VARCHAR,
+    road_name        VARCHAR,
+    description      VARCHAR,
+    latitude         DOUBLE,
+    longitude        DOUBLE
+);
+"""
+
 def main():
     if not MOTHERDUCK_TOKEN:
         logger.error("MOTHERDUCK_TOKEN tidak ditemukan di .env — generate dulu di motherduck.com.")
@@ -90,8 +100,9 @@ def main():
     con.execute(CREATE_STG_BUS_ARRIVAL)
     con.execute(CREATE_STG_BUS_SERVICES)
     con.execute(CREATE_STG_BUS_ROUTES)
-    logger.info("Staging tables ensured: stg_bus_arrival_raw, stg_bus_services_raw, stg_bus_routes_raw.")
-
+    con.execute(CREATE_STG_BUS_STOPS)
+    logger.info("Staging tables ensured: stg_bus_arrival_raw, stg_bus_services_raw, stg_bus_routes_raw, stg_bus_stops_raw.")
+    
     tables = con.execute(
         "SELECT table_schema, table_name FROM information_schema.tables "
         "WHERE table_schema IN ('staging', 'gold') ORDER BY 1, 2"

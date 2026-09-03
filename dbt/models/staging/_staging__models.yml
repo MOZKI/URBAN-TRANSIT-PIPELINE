@@ -24,3 +24,8 @@ models:
     columns:
       - name: service_no
         tests: [not_null]
+
+  - name: stg_bus_stops
+    columns:
+      - name: bus_stop_code
+        tests: [unique, not_null]

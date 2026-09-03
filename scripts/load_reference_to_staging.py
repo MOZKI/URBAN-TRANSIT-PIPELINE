@@ -20,6 +20,7 @@ MOTHERDUCK_DATABASE = os.environ.get("MOTHERDUCK_DATABASE", "urban_transit")
 REFERENCE_FILES = {
     "stg_bus_services_raw": os.path.join(SCRIPT_DIR, "bus_services_reference.json"),
     "stg_bus_routes_raw": os.path.join(SCRIPT_DIR, "bus_routes_reference.json"),
+    "stg_bus_stops_raw": os.path.join(SCRIPT_DIR, "bus_stops_reference.json"),
 }
 
 

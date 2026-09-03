@@ -70,20 +70,21 @@ def build_spark_session() -> SparkSession:
         .config("spark.hadoop.fs.s3a.attempts.maximum", "3")
         .config("spark.hadoop.fs.s3a.connection.keepalive", "false")
         .config("spark.hadoop.fs.s3a.connection.ttl", "5000")
-        .config("spark.sql.shuffle.partitions", "4") 
+        .config("spark.sql.shuffle.partitions", "4")
         .getOrCreate()
     )
 
 def load_direction_lookup(spark: SparkSession):
     routes = spark.read.option("multiline", "true").json(config.REFERENCE_ROUTES_PATH)
-
     window = Window.partitionBy("service_no", "bus_stop_code").orderBy("stop_sequence")
-    return (
-        routes
-        .withColumn("rn", F.row_number().over(window))
+    rows = (
+        routes.withColumn("rn", F.row_number().over(window))
         .filter(F.col("rn") == 1)
         .select("service_no", "bus_stop_code", "direction")
+        .collect()
     )
+    lookup_dict = {(r.service_no, r.bus_stop_code): r.direction for r in rows}
+    return spark.sparkContext.broadcast(lookup_dict)
 
 def load_services_lookup(spark: SparkSession):
     services = spark.read.option("multiline", "true").json(config.REFERENCE_SERVICES_PATH)
@@ -119,9 +120,12 @@ def run():
     logger.info("Step 1/6: DONE — Spark session ready.")
 
     logger.info("Step 2/6: Loading direction lookup from MinIO (bus_routes_reference.json)...")
-    direction_lookup = load_direction_lookup(spark)
-    direction_lookup.cache()
-    logger.info(f"Step 2/6: DONE — {direction_lookup.count()} direction lookup rows loaded.")
+    direction_lookup_bc = load_direction_lookup(spark)
+    logger.info(f"Step 2/6: DONE — {len(direction_lookup_bc.value)} direction lookup rows loaded.")
+
+    @F.udf(returnType=IntegerType())
+    def resolve_direction(service_no, bus_stop_code):
+        return direction_lookup_bc.value.get((service_no, bus_stop_code))
 
     logger.info("Step 3/6: Loading services lookup from MinIO (bus_services_reference.json)...")
     services_lookup = load_services_lookup(spark)
@@ -166,10 +170,8 @@ def run():
         & F.col("next_bus2_eta").isNotNull() & (F.col("next_bus2_eta") != "")
     )
 
-    with_direction = enriched.join(
-        F.broadcast(direction_lookup),
-        on=["service_no", "bus_stop_code"],
-        how="left",
+    with_direction = enriched.withColumn(
+        "direction", resolve_direction(F.col("service_no"), F.col("bus_stop_code"))
     )
 
     with_freq = with_direction.join(

@@ -7,3 +7,4 @@ sources:
       - name: stg_bus_arrival_raw
       - name: stg_bus_routes_raw
       - name: stg_bus_services_raw
+      - name: stg_bus_stops_raw
