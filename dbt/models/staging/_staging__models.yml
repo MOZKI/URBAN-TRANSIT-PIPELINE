@@ -10,7 +10,9 @@ models:
       - name: direction
         tests:
           - not_null
-          - accepted_values: { values: [1, 2] }
+          - accepted_values:
+              arguments:
+                values: [1, 2]
 
   - name: stg_bus_routes
     tests:
