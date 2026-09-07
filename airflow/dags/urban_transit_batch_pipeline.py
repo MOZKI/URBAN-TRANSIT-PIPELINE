@@ -31,8 +31,8 @@ with DAG(
         task_id="load_bronze_to_staging",
         bash_command="python /opt/airflow/scripts/load_bronze_to_staging.py",
     )
-    dbt_run = BashOperator(task_id="dbt_run", bash_command=f"cd {DBT_DIR} && dbt run")
-    dbt_snapshot = BashOperator(task_id="dbt_snapshot", bash_command=f"cd {DBT_DIR} && dbt snapshot")
-    dbt_test = BashOperator(task_id="dbt_test", bash_command=f"cd {DBT_DIR} && dbt test")
+    dbt_run = BashOperator(task_id="dbt_run", bash_command=f"cd {DBT_DIR} && rm -rf target && dbt run")
+    dbt_snapshot = BashOperator(task_id="dbt_snapshot", bash_command=f"cd {DBT_DIR} && rm -rf target && dbt snapshot")
+    dbt_test = BashOperator(task_id="dbt_test", bash_command=f"cd {DBT_DIR} && rm -rf target && dbt test")
 
     load_bronze_to_staging >> dbt_run >> dbt_snapshot >> dbt_test
