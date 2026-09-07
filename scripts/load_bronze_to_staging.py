@@ -8,6 +8,18 @@ import os
 
 import duckdb
 from dotenv import load_dotenv
+import time
+
+def retry_query(con, sql, params=None, attempts=5, base_delay=10):
+    for i in range(attempts):
+        try:
+            return con.execute(sql, params) if params else con.execute(sql)
+        except duckdb.IOException as e:
+            if i == attempts - 1:
+                raise
+            wait = base_delay * (2 ** i)
+            logger.warning(f"MinIO IO error (attempt {i+1}/{attempts}): {e} — retry in {wait}s")
+            time.sleep(wait)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(SCRIPT_DIR, "..", ".env"))
@@ -30,16 +42,11 @@ DEDUP_KEYS = ["bus_stop_code", "service_no", "next_bus_eta", "event_ts"]
 def build_local_connection() -> duckdb.DuckDBPyConnection:
     con = duckdb.connect()
     con.execute("INSTALL httpfs; LOAD httpfs;")
-    con.execute(f"""
-        CREATE SECRET minio_secret (
-            TYPE s3,
-            KEY_ID '{MINIO_ROOT_USER}',
-            SECRET '{MINIO_ROOT_PASSWORD}',
-            ENDPOINT '{MINIO_ENDPOINT}',
-            USE_SSL false,
-            URL_STYLE 'path'
-        );
-    """)
+    con.execute(f"SET s3_endpoint='{MINIO_ENDPOINT}';")
+    con.execute(f"SET s3_access_key_id='{MINIO_ROOT_USER}';")
+    con.execute(f"SET s3_secret_access_key='{MINIO_ROOT_PASSWORD}';")
+    con.execute("SET s3_use_ssl=false;")
+    con.execute("SET s3_url_style='path';")
     return con
 
 
@@ -78,8 +85,8 @@ def load(since: str | None) -> None:
     where_clause = ("WHERE " + " AND ".join(filters)) if filters else ""
 
     logger.info(f"Reading bronze parquet from {BRONZE_GLOB} ...")
-    raw_count = con.execute(
-        f"SELECT count(*) FROM read_parquet('{BRONZE_GLOB}') {where_clause}", params
+    raw_count = retry_query(
+        con, f"SELECT count(*) FROM read_parquet('{BRONZE_GLOB}') {where_clause}", params
     ).fetchone()[0]
     logger.info(f"Read {raw_count} raw rows.")
 
@@ -90,7 +97,7 @@ def load(since: str | None) -> None:
     dedup_key_cols = ", ".join(DEDUP_KEYS)
 
     con.execute(f"""
-        CREATE TEMP TABLE bronze_dedup AS
+        CREATE OR REPLACE TEMP TABLE bronze_dedup AS
         SELECT * EXCLUDE (rn) FROM (
             SELECT *,
                    row_number() OVER (PARTITION BY {dedup_key_cols} ORDER BY event_ts DESC) AS rn

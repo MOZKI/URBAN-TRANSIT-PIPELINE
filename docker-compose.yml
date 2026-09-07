@@ -1,3 +1,10 @@
+networks:
+  urban-transit-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
 services:
   redpanda:
     image: docker.redpanda.com/redpandadata/redpanda:latest
@@ -19,6 +26,9 @@ services:
       - "9644:9644"
     volumes:
       - redpanda-data:/var/lib/redpanda/data
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
   redpanda-console:
     image: docker.redpanda.com/redpandadata/console:latest
@@ -29,6 +39,9 @@ services:
       - "8080:8080"
     depends_on:
       - redpanda
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
   minio-urban-transit:
     image: minio/minio:latest
@@ -42,21 +55,35 @@ services:
       - "9001:9001"
     volumes:
       - minio-data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      urban-transit-net:
+        ipv4_address: 172.28.0.10
 
   spark-consumer:
     build:
       context: ./streaming
     container_name: spark-consumer
     depends_on:
-      - redpanda
-      - minio-urban-transit
+      redpanda:
+        condition: service_started
+      minio-urban-transit:
+        condition: service_healthy
     environment:
       REDPANDA_BROKER: redpanda:9092
       TOPIC_NAME: lta.bus-arrival.raw
-      MINIO_ENDPOINT: http://minio-urban-transit:9000
+      MINIO_ENDPOINT: http://172.28.0.10:9000
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
       MINIO_BUCKET: urban-transit
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
   postgres-airflow-utp:
     image: postgres:15
@@ -72,6 +99,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
   airflow-init-utp:
     build:
@@ -79,6 +109,8 @@ services:
     container_name: airflow-init-utp
     depends_on:
       postgres-airflow-utp:
+        condition: service_healthy
+      minio-urban-transit:
         condition: service_healthy
     env_file:
       - .env
@@ -95,6 +127,8 @@ services:
       - ./scripts:/opt/airflow/scripts
       - ./dbt:/opt/airflow/dbt
       - airflow-logs:/opt/airflow/logs
+    networks:
+      - urban-transit-net
 
   airflow-webserver-utp:
     build:
@@ -105,13 +139,15 @@ services:
         condition: service_healthy
       airflow-init-utp:
         condition: service_completed_successfully
+      minio-urban-transit:
+        condition: service_healthy
     env_file:
       - .env
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow-utp/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-      MINIO_ENDPOINT: http://minio-urban-transit:9000
+      MINIO_ENDPOINT: http://172.28.0.10:9000
     ports:
       - "8081:8080"
     command: webserver
@@ -120,6 +156,9 @@ services:
       - ./scripts:/opt/airflow/scripts
       - ./dbt:/opt/airflow/dbt
       - airflow-logs:/opt/airflow/logs
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
   airflow-scheduler-utp:
     build:
@@ -130,19 +169,24 @@ services:
         condition: service_healthy
       airflow-init-utp:
         condition: service_completed_successfully
+      minio-urban-transit:
+        condition: service_healthy
     env_file:
       - .env
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow-utp/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-      MINIO_ENDPOINT: http://minio-urban-transit:9000
+      MINIO_ENDPOINT: http://172.28.0.10:9000
     command: scheduler
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./scripts:/opt/airflow/scripts
       - ./dbt:/opt/airflow/dbt
       - airflow-logs:/opt/airflow/logs
+    restart: unless-stopped
+    networks:
+      - urban-transit-net
 
 volumes:
   redpanda-data:
