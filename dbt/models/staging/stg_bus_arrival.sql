@@ -43,6 +43,7 @@ renamed as (
 
     from deduped
     where rn = 1
+     and direction is not null
 )
 
 select

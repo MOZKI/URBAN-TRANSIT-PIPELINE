@@ -164,6 +164,16 @@ services:
       - airflow-logs:/opt/airflow/logs
     restart: unless-stopped
 
+  metabase:
+    build:
+      context: ./metabase
+    container_name: metabase-urban-transit
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
 volumes:
   redpanda-data:
   minio-data:
