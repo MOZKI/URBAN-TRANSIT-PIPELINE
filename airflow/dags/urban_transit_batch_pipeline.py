@@ -1,7 +1,7 @@
 """
 urban_transit_batch_pipeline
 -----------------------------
-Batch layer: MinIO Bronze -> MotherDuck Staging -> Gold -> DQ test.
+Batch layer: MinIO Bronze -> MotherDuck Staging -> Gold -> DQ test WITH dbt.
 """
 from datetime import datetime, timedelta
 
