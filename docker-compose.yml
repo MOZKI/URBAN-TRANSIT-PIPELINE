@@ -174,8 +174,12 @@ services:
     container_name: metabase-urban-transit
     env_file:
       - .env
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
     ports:
       - "3000:3000"
+    volumes:
+      - metabase-data:/metabase-data
     restart: unless-stopped
 
 volumes:
@@ -183,3 +187,4 @@ volumes:
   minio-data:
   postgres-airflow-data:
   airflow-logs:
+  metabase-data:
