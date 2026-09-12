@@ -2,7 +2,7 @@
 
 {{
     config(
-        target_schema='gold',
+        target_schema='staging',
         unique_key="service_no || '-' || direction || '-' || bus_stop_code",
         strategy='check',
         check_cols=['stop_sequence', 'road_name', 'stop_name', 'latitude', 'longitude'],
