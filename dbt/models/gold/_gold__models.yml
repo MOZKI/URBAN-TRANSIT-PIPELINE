@@ -15,3 +15,8 @@ models:
     columns:
       - name: service_no
         tests: [not_null]
+
+  - name: dim_bus_stops
+    columns:
+      - name: bus_stop_code
+        tests: [not_null]
