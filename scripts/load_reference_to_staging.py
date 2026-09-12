@@ -1,6 +1,6 @@
 """
 Script One-Off: Load reference JSON (bus_services_reference.json,
-bus_routes_reference.json) -> MotherDuck Staging.
+bus_routes_reference.json, bus_stops_reference.json) -> MotherDuck Staging.
 """
 import logging
 import os

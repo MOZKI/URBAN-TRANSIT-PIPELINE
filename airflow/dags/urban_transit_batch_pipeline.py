@@ -11,7 +11,7 @@ from airflow.operators.bash import BashOperator
 DBT_DIR = "/opt/airflow/dbt"
 
 default_args = {
-    "owner": "hernandez",
+    "owner": "mohammad zaki",
     "retries": 2,
     "retry_delay": timedelta(minutes=3),
 }
@@ -19,7 +19,7 @@ default_args = {
 with DAG(
     dag_id="urban_transit_batch_pipeline",
     description="MinIO Bronze -> MotherDuck Staging -> dbt run -> dbt snapshot -> dbt test",
-    schedule_interval=timedelta(minutes=15),
+    schedule_interval=timedelta(minutes=2),
     start_date=datetime(2026, 1, 1),
     catchup=False,
     max_active_runs=1,
