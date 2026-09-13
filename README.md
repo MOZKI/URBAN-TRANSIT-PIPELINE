@@ -2,6 +2,11 @@
 
 Near-realtime, event-driven data pipeline for **Service 190, 147, 2** corridor bottleneck & headway-reliability analytics, built on a hybrid speed-layer + batch-orchestration architecture.
 
+<p align="center">
+  <img width="1600" height="900" alt="Frame 23" src="https://github.com/user-attachments/assets/5cbd5a71-f2f7-4c69-a582-1b19286b933d" />
+</p>
+
+
 ## 1. Prerequisites
 
 - Docker + Docker Compose
