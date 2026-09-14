@@ -1,4 +1,4 @@
-# Near-Realtime Urban Transit Pipeline (Singapore LTA)
+# Near-Realtime Urban Transit Pipeline
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
