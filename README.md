@@ -183,21 +183,12 @@ The Metabase dashboard (Corridor 190, 147, 2) includes:
 
 - **Hybrid speed + batch layer**: ingestion runs always-on and independently of the scheduled warehouse/transform layer, so real-time ingestion is never blocked by batch job duration.
 - **Spark over plain Python**: at this project's scale, a plain Python consumer could already handle dedup/windowing manually — Spark was chosen for production-readiness and easier scale-up if the corridor scope grows, not because the current volume needs distributed compute.
-- **Composite key on `dim_bus_stops`**: `(service_no, direction, bus_stop_code)` instead of bare `bus_stop_code`, since the same physical stop serves multiple routes/directions, and headway is computed per route-direction-stop.
-- **SCD2 snapshot on `dim_bus_stops`**: historizes any change to a route's stop sequence (e.g. LTA re-routing) instead of silently overwriting it.
-- **MotherDuck + self-hosted Metabase over BigQuery + Looker Studio**: pivoted after hitting DML restrictions on BigQuery Sandbox (needed for `dbt snapshot`) and GCP billing-enablement issues in my environment — MotherDuck has a permanent free tier with no billing setup required.
-- **Watermarked dedup in Spark**: `dropDuplicatesWithinWatermark` guards against duplicate events from producer retries; corridor-level aggregation is deferred to dbt Gold rather than done in the streaming job.
-- **Producer runs outside Docker**: kept as a local process rather than a container to sidestep host networking/port-forwarding issues on macOS.
 
 ## Challenges & Troubleshooting
 
-- **Polling cycle drift**: a 60s interval plus per-stop staggering pushed the real cycle time past 60s → tuned to `POLL_INTERVAL_SECONDS=120` and `REQUEST_STAGGER_MS=120`.
 - **Redpanda Console `Backend Error: connection refused`** on the Topics page, despite the producer sending data successfully → caused by a single listener only exposing `localhost:9092`; fixed with a proper dual-listener setup (internal `redpanda:9092`, external `localhost:19092`).
 - **Spark consumer wrote nothing to MinIO** even though events were landing in Redpanda → root cause was broken internal connectivity between the consumer and Redpanda/MinIO; fixed by containerizing the consumer on the same Docker network.
-- **`load_bronze_to_staging.py` failures** traced to three separate issues: a MinIO API port conflict (moved `9000` → `9010`), DuckDB extension load order (`httpfs` must run before `motherduck`), and `SELECT *` matching columns positionally instead of by name.
-- **297 null values in `direction`, failing `dbt test`** → the Spark direction-lookup was built as a DataFrame join re-executed every ~30s across a multi-day streaming run; replaced with a one-time `collect()` into a broadcast Python dict resolved via a UDF.
 - **Airflow task `load_bronze_to_staging` stuck "up for retry"** → DuckDB's `httpfs` (MinIO) and `motherduck` extensions conflicted on a single connection; split into two independent connections, transferring data via Arrow.
-- **`dbt_snapshot` task stuck "up for retry"** after a successful `dbt_run` → a corrupted `dbt/target/` left behind by an interrupted run; fixed by clearing `target/` before every dbt command in the DAG.
 
 ## Limitations & Future Work
 
