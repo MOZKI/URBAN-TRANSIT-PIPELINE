@@ -22,7 +22,7 @@ A near-realtime, event-driven data pipeline that streams bus GPS/ETA data from t
 - [Dashboard](#dashboard)
 - [Key Design Decisions](#key-design-decisions)
 - [Challenges & Troubleshooting](#challenges--troubleshooting)
-- [Limitations & Future Work](#limitations--future-work)
+- [Design Trade-Offs & Limitations](#design-trade-offs--limitations)
 - [Author](#author)
 
 ## Background & Goal
@@ -189,7 +189,7 @@ The Metabase dashboard (Corridor 190, 147, 2) includes:
 - **Spark consumer wrote nothing to MinIO** even though events were landing in Redpanda → root cause was broken internal connectivity between the consumer and Redpanda/MinIO; fixed by containerizing the consumer on the same Docker network.
 - **Airflow task `load_bronze_to_staging` stuck "up for retry"** → DuckDB's `httpfs` (MinIO) and `motherduck` extensions conflicted on a single connection; split into two independent connections, transferring data via Arrow.
 
-## Trade-Offs
+## Design Trade-Offs & Limitations
 
 - Added architectural complexity (hybrid speed + batch) beyond what this use case strictly needed, as a deliberate choice to build production-style streaming experience.
 - Set polling to 120s rather than the API's supported 20s refresh rate. This means the pipeline can't track per-second bus movement, but keeps resource usage low.
