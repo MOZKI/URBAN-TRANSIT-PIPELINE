@@ -27,19 +27,18 @@ A near-realtime, event-driven data pipeline that streams bus GPS/ETA data from t
 
 ## Background & Goal
 
-Public transit riders, urban fleet operators, and city planners often lack real-time *and* historical visibility into bus delay levels and corridor bottlenecks — and static published timetables rarely match what's actually happening on the road. This project builds a near-realtime pipeline that:
+City planners often lack real-time and historical visibility into bus delay levels and corridor bottlenecks, since static published timetables rarely reflect what's actually happening on the road. This project builds a near-realtime pipeline that:
+1. Continuously polls GPS and Estimated Time of Arrival (ETA) data from the LTA API and streams it through the ingestion pipeline in near-real time.
+2. Computes a headway gap score: the difference between actual bus-to-bus arrival intervals and the officially published dispatch frequency.
+3. Archives every raw event to a data lake, then surfaces near-realtime and historical analysis in a warehouse and dashboard.
 
-1. Consumes GPS and Estimated Time of Arrival (ETA) data from the LTA API in a micro-batch streaming fashion.
-2. Computes a **headway gap score** — the difference between actual bus-to-bus arrival intervals and the officially published dispatch frequency.
-3. Archives every raw event to a data lake, then surfaces near-realtime and historical analysis in a warehouse + dashboard.
-
-**Scope**: 3 representative bus services — **190, 147, 2** — chosen to cover distinct corridor types (express/commuter rush, urban trunk/mixed zone, dense-stop artery) while keeping corridor-bottleneck analysis coherent without polling all 5,000+ bus stops in Singapore.
+**Scope**: 3 representative bus services (190, 147, 2), chosen to cover distinct corridor types (express/commuter rush, urban trunk/mixed zone, dense-stop artery) while keeping corridor-bottleneck analysis coherent without polling all 5,000+ bus stops in Singapore.
 
 **Success metrics**:
-- **Latency & freshness** — data ingested and processed on a consistent ~120s polling cycle per corridor scope.
-- **Headway Reliability Index** — % of bus arrival intervals within the officially published frequency range vs. exceeding it, broken down by stop, route, and time of day.
-- **Bottleneck identification** — surface at least 3 stops/corridors with the highest headway gap during the observation window.
-- **Data quality SLA** — 100% of ingested data passes schema integrity and null checks at staging and gold, enforced via `dbt test`.
+- **Latency & freshness**: data ingested and processed on a consistent ~120s polling cycle per corridor scope.
+- **Headway Reliability Index**: % of bus arrival intervals within the officially published frequency range vs. exceeding it, broken down by stop, route, and time of day.
+- **Bottleneck identification**: surface at least 3 stops/corridors with the highest headway gap during the observation window.
+- **Data quality SLA**: 100% of ingested data passes schema integrity and null checks at staging and gold, enforced via `dbt test`.
 
 ## Architecture
 <p align="center">
@@ -182,7 +181,7 @@ The Metabase dashboard (Corridor 190, 147, 2) includes:
 ## Key Design Decisions
 
 - **Hybrid speed + batch layer**: ingestion runs always-on and independently of the scheduled warehouse/transform layer, so real-time ingestion is never blocked by batch job duration.
-- **Spark over plain Python**: at this project's scale, a plain Python consumer could already handle dedup/windowing manually — Spark was chosen for production-readiness and easier scale-up if the corridor scope grows, not because the current volume needs distributed compute.
+- **Spark over plain Python**: at this project's scale, a plain Python consumer could already handle dedup/windowing manually. Spark was chosen for production-readiness and easier scale-up if the corridor scope grows, not because the current volume needs distributed compute.
 
 ## Challenges & Troubleshooting
 
@@ -190,11 +189,12 @@ The Metabase dashboard (Corridor 190, 147, 2) includes:
 - **Spark consumer wrote nothing to MinIO** even though events were landing in Redpanda → root cause was broken internal connectivity between the consumer and Redpanda/MinIO; fixed by containerizing the consumer on the same Docker network.
 - **Airflow task `load_bronze_to_staging` stuck "up for retry"** → DuckDB's `httpfs` (MinIO) and `motherduck` extensions conflicted on a single connection; split into two independent connections, transferring data via Arrow.
 
-## Limitations & Future Work
+## Trade-Offs
 
-- Scope limited to 3 bus services (190, 147, 2); reference data is a one-off snapshot, so an LTA re-route currently requires manually re-running `fetch_bus_routes.py` and restarting `spark-consumer`.
-- Development environment is local Docker Compose — the producer and all containers need to be running for the pipeline to stay live.
-- Stretch goals: automate reference-data refresh, deploy to a cloud VM for 24/7 uptime, add CI for `dbt test`, expand corridor scope.
+- Added architectural complexity (hybrid speed + batch) beyond what this use case strictly needed, as a deliberate choice to build production-style streaming experience.
+- Set polling to 120s rather than the API's supported 20s refresh rate. This means the pipeline can't track per-second bus movement, but keeps resource usage low.
+- Prioritized lightweight local footprint over raw performance for some tool choices (e.g., Redpanda over a heavier broker).
+- Scoped to 3 corridors to keep bottleneck analysis coherent, at the cost of city-wide coverage.
 
 ## Author
 
